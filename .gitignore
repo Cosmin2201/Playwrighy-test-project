@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Playwright Test Assets
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# System-specific browser binaries (Optional but recommended)
+# Playwright usually installs these in a global cache, 
+# but if you've configured a local path, ignore it here.
+pw-browsers/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# VS Code specific
+.vscode/
+# Note: If you want to share workspace settings or extensions 
+# with your team, you can comment out the line above.
+
+# Debug & Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# OS generated files
+.DS_Store
+Thumbs.db
