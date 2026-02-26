@@ -50,7 +50,7 @@ test.describe("My first tesst suite", () => {
     );
   });
 
-  test("Assertions", async ({ page }) => {
+  test("Assertions @myTag", async ({ page }) => {
     await page.goto("https://example.com/");
     await expect(page).toHaveURL("https://example.com/");
     await expect(page).toHaveTitle("Example Domain");
@@ -62,4 +62,15 @@ test.describe("My first tesst suite", () => {
     const nonExistingElement = await page.locator("h5");
     await expect(nonExistingElement).not.toBeVisible();
   });
+});
+
+test("Screenshots", async ({ page }) => {
+  await page.goto("https://example.com/");
+  await page.screenshot({ path: "screenshot.png", fullPage: true });
+});
+
+test.only("Single elemenent Screenshot", async ({ page }) => {
+  await page.goto("https://example.com");
+  const element = await page.$("h1");
+  await element?.screenshot({ path: "single_element_screenshot.png" });
 });
