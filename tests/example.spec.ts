@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 
+import { loadHomepage, assertTitle } from "../helpers";
+
 test("Simple basic test", async ({ page }) => {
   await page.goto("https://www.example.com");
   const pageTitle = await page.locator("h1");
@@ -64,13 +66,25 @@ test.describe("My first tesst suite", () => {
   });
 });
 
-test("Screenshots", async ({ page }) => {
-  await page.goto("https://example.com/");
-  await page.screenshot({ path: "screenshot.png", fullPage: true });
+test.describe.parallel.only("Hooks", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("https://example.com/");
+  });
+
+  test("Screenshots", async ({ page }) => {
+    //await page.goto("https://example.com/");
+    await page.screenshot({ path: "screenshot.png", fullPage: true });
+  });
+
+  test("Single elemenent Screenshot", async ({ page }) => {
+    //await page.goto("https://example.com");
+    const element = await page.$("h1");
+    await element?.screenshot({ path: "single_element_screenshot.png" });
+  });
 });
 
-test.only("Single elemenent Screenshot", async ({ page }) => {
-  await page.goto("https://example.com");
-  const element = await page.$("h1");
-  await element?.screenshot({ path: "single_element_screenshot.png" });
+test("Custom Helpers", async ({ page }) => {
+  await loadHomepage(page);
+  //await page.pause();
+  await assertTitle(page);
 });
