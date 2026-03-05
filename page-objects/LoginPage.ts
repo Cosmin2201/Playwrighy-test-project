@@ -33,13 +33,11 @@ export class LoginPage {
     );
   }
   async snapshotLoginForm() {
-    expect(await this.loginForm.screenshot()).toMatchSnapshot(
-      "login-form-Chromium-win32.png",
-    );
+    expect(await this.loginForm.screenshot()).toMatchSnapshot("login-form.png");
   }
   async snapshotErrorMessage() {
     expect(await this.errorMessage.screenshot()).toMatchSnapshot(
-      "login-error-Chromium-win32.png",
+      "login-error.png",
     );
   }
 }

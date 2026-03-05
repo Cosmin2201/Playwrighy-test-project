@@ -1,0 +1,23 @@
+{
+  "name": "cursor-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:chrome:headed": "playwright test --browser=chromium --headed --reporter=pwmochawesome",
+    "test:chrome:headless": "playwright test --browser=chromium --reporter=pwmochawesome",
+    "test:webkit": "playwright test --browser=webkit --reporter=pwmochawesome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.3",
+    "prettier": "^3.8.1",
+    "pwmochawesome": "^2.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
